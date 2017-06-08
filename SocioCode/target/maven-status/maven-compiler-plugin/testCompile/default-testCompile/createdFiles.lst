@@ -1,0 +1,7 @@
+com\niit\sociocode\test\ForumTestCase.class
+com\niit\sociocode\test\BlogTestCase.class
+com\niit\sociocode\test\BlogCommentTestCase.class
+com\niit\sociocode\test\FriendTestCase.class
+com\niit\sociocode\test\JobTestCase.class
+com\niit\sociocode\test\UserTestCase.class
+com\niit\sociocode\test\ForumCommentTestCase.class
