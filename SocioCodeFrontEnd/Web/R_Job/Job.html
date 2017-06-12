@@ -1,0 +1,29 @@
+<div ng-controller="JobController">
+
+	<form>
+		<table>
+			<tr>
+				<td colspan="2"></td>
+			</tr>
+			<tr>
+				<td><center>Job Profile</center></td>
+			</tr>
+			<tr>
+				<td>Job Profile</td>
+				<td><input type="text" ng-model="job.jobProfile" /></td>
+			</tr>
+			<tr>
+				<td>Job Description</td>
+				<td colspan="2"><input type="text" ng-model="job.jobDescription" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" ng-click="saveJobPost()" /></td>
+			</tr>
+		</table>
+	</form>
+	<p>looping with objects</p>
+	<ul>
+		<li ng-repeat='x in jobData'>
+			{{x.jobId+','+x.jobProfile+','+x.jobDescription}}</li>
+	</ul>
+</div>

@@ -1,0 +1,28 @@
+<div ng-controller="ForumController">
+	<form>
+		<table>
+			<tr>
+				<td colspan="2"></td>
+			</tr>
+			<tr>
+				<td><center>Forum Content</center></td>
+			</tr>
+			<tr>
+				<td>Forum Name</td>
+				<td><input type="text" ng-model="forum.forumName" /></td>
+			</tr>
+			<tr>
+				<td>Forum Content</td>
+				<td colspan="2"><input type="text" ng-model="forum.forumContent" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" ng-click="saveForumPost()" /></td>
+			</tr>
+		</table>
+	</form>
+	<p>looping with objects</p>
+	<ul>
+		<li ng-repeat='x in forumData'>
+			{{x.forumId+','+x.forumName+','+x.forumContent}}</li>
+	</ul>
+</div>
