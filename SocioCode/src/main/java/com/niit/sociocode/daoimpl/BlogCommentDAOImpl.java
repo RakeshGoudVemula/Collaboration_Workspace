@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -55,6 +57,9 @@ public class BlogCommentDAOImpl implements BlogCommentDAO{
 
 	
 	public BlogComment getBlogCommentById(int id) {
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from Blog Comment ");
+		
 		return (BlogComment) sessionFactory.getCurrentSession().get(BlogComment.class, id);
 	}
 

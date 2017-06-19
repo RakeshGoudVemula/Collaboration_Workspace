@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
-  <script src="MainApp.js"></script>
-  <script src="RouteConfig.js"></script>
-  <script src="R_Blog\BlogController.js"></script>
-  <script src="R_Forum\ForumController.js"></script>
-  <script src="R_Job\JobController.js"></script>
-  <script src="R_User\UserController.js"></script>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="Resources/css/bootstrap.css">
+<link rel="stylesheet" href="Resources/css/Mystyle.css" />
+<script src="Resources/JS/bootstrap.js"></script>
+<script src="Resources/JS/jquery.js"></script>
+<script src="Resources/JS/angular.js"></script>
+<script src="Resources/JS/angular-route.js"></script>
+<script src="MainApp.js"></script>
+<script src="RouteConfig.js"></script>
+<script src="R_Blog\BlogController.js"></script>
+<script src="R_Forum\ForumController.js"></script>
+<script src="R_Job\JobController.js"></script>
+<script src="R_User\UserController.js"></script>
 </head>
 <body ng-app="myApp">
 
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-  
-     <div class="navbar-header">
-       <a class="navbar-brand" href="#">SocioCode</a>
-     </div>
-     <ul class="nav navbar-nav">
-      <li class="active"><a href="#/">Home</a></li>
-      <li><a href="#/Login">Login</a></li>
-      <li><a href="#/Register">Register</a></li>
-      <li><a href="#/Blog">Blog</a></li>
-     <li><a href="#/Forum">Forum</a></li>
-     <li><a href="#/Job">Job</a></li>
-     <li><a href="User">User</a></li>
-    </ul>
-  </div>
-</nav>
-<div ng-view>
-  
-<div class="container">
-  <h3>Inverted Navbar</h3>
-  <p>An inverted navbar is black instead of gray.</p>
-</div>
-</div>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">SocioCode</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="#/">Home</a></li>
+				<li><a href="#/Blog">Blog</a></li>
+				<li><a href="#/Forum">Forum</a></li>
+				<li><a href="#/Job">Job</a></li>
+				<li><a href="#/User">User</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#/Register"><span
+						class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li><a href="#/Login"><span
+						class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div ng-view>
+		<div class="container">
+			<h3>Inverted Navbar</h3>
+			<p>An inverted navbar is black instead of gray.</p>
+		</div>
+	</div>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <div ng-controller="JobController">
 
 	<form>
-		<table>
+		<table class="">
 			<tr>
 				<td colspan="2"></td>
 			</tr>
@@ -14,7 +14,8 @@
 			</tr>
 			<tr>
 				<td>Job Description</td>
-				<td colspan="2"><input type="text" ng-model="job.jobDescription" /></td>
+				<td colspan="2"><input type="text"
+					ng-model="job.jobDescription" /></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" ng-click="saveJobPost()" /></td>

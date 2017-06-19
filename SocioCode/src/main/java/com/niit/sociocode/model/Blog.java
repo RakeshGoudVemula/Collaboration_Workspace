@@ -3,7 +3,10 @@ package com.niit.sociocode.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -13,6 +16,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class Blog {
 	@Id
+	@SequenceGenerator(name="SEQ_GEN",sequenceName="BLOG_MODEL",allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_GEN")
 	private int blogId;
 	private String blogName;
 	private String blogContent;

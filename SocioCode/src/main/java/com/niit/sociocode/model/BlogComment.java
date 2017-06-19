@@ -18,7 +18,7 @@ public class BlogComment {
 	private String blogComment;
 	private Date blogCommentDate;
 	private int userId;
-	private String username;
+	private String userName;
 
 	public int getBlogCommentId() {
 		return blogCommentId;
@@ -61,11 +61,11 @@ public class BlogComment {
 	}
 
 	public String getUsername() {
-		return username;
+		return userName;
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		this.userName = username;
 	}
 
 }

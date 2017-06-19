@@ -14,6 +14,9 @@ myApp.config(function($routeProvider) {
 	}).when("/Job", {
 		templateUrl : "R_Job/Job.html",
 		controller : "JobController"
+	}).when("/User",{
+		templateUrl:"R_User/User.html",
+		controller:"UserController"
 	})
-
+	
 });

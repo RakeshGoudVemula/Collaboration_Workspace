@@ -1,29 +1,43 @@
+<style>
+.mod1, td {
+	border: 1px solid grey;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
+.mod1 tr:nth-child(odd) {
+	background-color: #f1f1f1;
+}
+
+.mod1 tr:nth-child(even) {
+	background-color: #ffffff;
+}
+</style>
 <div ng-controller="BlogController">
 
 	<form>
-		<table>
-			<tr>
-				<td colspan="2"></td>
-			</tr>
-			<tr>
-				<td><center>Blog Content</center></td>
-			</tr>
-			<tr>
-				<td>Blog Name</td>
-				<td><input type="text" ng-model="blog.blogName" /></td>
-			</tr>
-			<tr>
-				<td>Blog Content</td>
-				<td colspan="2"><input type="text" ng-model="blog.blogContent" /></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" ng-click="saveBlogPost()" /></td>
-			</tr>
-		</table>
+		<div class="form-group">
+			<label for="blogName">BlogName</label> <input type="text"
+				style="height: 40px; width: 200px;" class="form-control"
+				ng-model="blog.blogName" name="blogName">
+		</div>
+
+		<div class="form-group">
+			<label for="blogContent">BlogContent:</label>
+			<textarea class="form-control" rows="6" style="width: 300px;"
+				ng-model="blog.blogContent" name="blogContent"></textarea>
+		</div>
+		<button type="submit" class="btn btn-warning"
+			ng-click="saveBlogPost()">Submit</button>
+
 	</form>
-	<p>looping with objects</p>
-	<ul>
-		<li ng-repeat='x in blogData'>
-			{{x.blogId+','+x.blogName+','+x.blogContent}}</li>
-	</ul>
+	<h2>Blogs</h2>
+	<table class="mod1">
+		<tr ng-repeat='x in blogData'>
+			<td>{{ $index + 1 }}</td>
+			<td>{{ x.blogId }}</td>
+			<td>{{ x.blogName }}</td>
+			<td>{{x.blogContent}}</td>
+		</tr>
+	</table>
 </div>

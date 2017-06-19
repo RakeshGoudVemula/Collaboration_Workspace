@@ -1,7 +1,6 @@
 myApp.controller("BlogController", function($scope, $http) {
 
 	$scope.blog = {
-		blogId : 2023,
 		blogName : "",
 		blogContent : ""
 	}
