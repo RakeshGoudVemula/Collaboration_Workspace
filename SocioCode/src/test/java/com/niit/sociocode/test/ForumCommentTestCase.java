@@ -29,17 +29,18 @@ public class ForumCommentTestCase {
 		forumCommentDAO = (ForumCommentDAO) context.getBean("forumCommentDAO");
 		forumComment = (ForumComment) context.getBean("forumComment");
 	}
+
 	@Test
 	public void createForumCommentTestCase() {
 		forumComment.setForumCommentId(1090);
 		forumComment.setForumId(1010);
 		forumComment.setForumComment("Test");
 		forumComment.setForumCommentDate(new Date());
-		forumComment.setUserId(2020);
+		forumComment.setUserId("2020");
 		forumComment.setUsername("Rakesh");
-		
-		boolean flag=forumCommentDAO.insertForumComment(forumComment);
-		assertEquals("createForumCommentTestCase",true,flag);
-		
+
+		boolean flag = forumCommentDAO.save(forumComment);
+		assertEquals("createForumCommentTestCase", true, flag);
+
 	}
 }

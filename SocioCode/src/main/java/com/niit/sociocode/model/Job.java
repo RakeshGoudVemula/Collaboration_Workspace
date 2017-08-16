@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table
-public class Job {
+public class Job extends BaseDomain{
 	@Id
-	private int jobId;
+	private String jobId;
 	private String jobProfile;
 	private String jobDescription;
 
@@ -21,11 +21,11 @@ public class Job {
 	private String status;
 	private Date postDate;
 
-	public int getJobId() {
+	public String getJobId() {
 		return jobId;
 	}
 
-	public void setJobId(int jobId) {
+	public void setJobId(String jobId) {
 		this.jobId = jobId;
 	}
 

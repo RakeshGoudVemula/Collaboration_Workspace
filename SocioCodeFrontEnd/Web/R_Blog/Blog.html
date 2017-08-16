@@ -1,18 +1,9 @@
 <style>
-.mod1, td {
-	border: 1px solid grey;
-	border-collapse: collapse;
-	padding: 5px;
-}
-
-.mod1 tr:nth-child(odd) {
-	background-color: #f1f1f1;
-}
-
-.mod1 tr:nth-child(even) {
-	background-color: #ffffff;
+table, th, td {
+	border: 1px solid black;
 }
 </style>
+
 <div ng-controller="BlogController">
 
 	<form>
@@ -30,14 +21,28 @@
 		<button type="submit" class="btn btn-warning"
 			ng-click="saveBlogPost()">Submit</button>
 
+
 	</form>
 	<h2>Blogs</h2>
-	<table class="mod1">
-		<tr ng-repeat='x in blogData'>
-			<td>{{ $index + 1 }}</td>
-			<td>{{ x.blogId }}</td>
-			<td>{{ x.blogName }}</td>
-			<td>{{x.blogContent}}</td>
-		</tr>
-	</table>
+	<div class="table-responsive">
+		<table class="table table-bordered">
+			<tr>
+				<th>SL.No</th>
+				<th>Blog Id</th>
+				<th>Blog Name</th>
+				<th>Blog Content</th>
+			</tr>
+			<tr ng-repeat='x in blogData'>
+				<td>{{ $index + 1 }}</td>
+				<td>{{ x.blogId }}</td>
+				<td>{{ x.blogName }}</td>
+				<td>{{x.blogContent}}</td>
+				<td><button type="submit" class=" btn btn-small btn-danger"
+						ng-click="deleteBlog(blogId)">Delete</button></td>
+				<td><button type="submit" class="btn btn-small btn-primary"
+					ng-click="updateBlog()">Edit</button></td>
+			</tr>
+		</table>
+
+	</div>
 </div>

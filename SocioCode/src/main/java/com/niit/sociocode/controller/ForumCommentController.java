@@ -39,8 +39,8 @@ public class ForumCommentController {
 		forumComment.setForumId(201);
 		forumComment.setForumCommentDate(new Date());
 		forumComment.setUsername("rakesh");
-		forumComment.setUserId(102);
-		forumCommentDAO.insertForumComment(forumComment);
+		forumComment.setUserId("102");
+		forumCommentDAO.save(forumComment);
 		return new ResponseEntity<String>("Successfully inserted", HttpStatus.OK);
 
 	}
@@ -49,7 +49,7 @@ public class ForumCommentController {
 	@RequestMapping(value = "/deleteForumComment/{forumCommentId}", method = RequestMethod.DELETE)
 	public ResponseEntity<String> deleteForumComment(@PathVariable("forumCommentId") int forumCommentId) {
 
-		forumCommentDAO.deleteForumComment(forumCommentId);
+		forumCommentDAO.delete(forumCommentId);
 
 		return new ResponseEntity<String>("ForumComment Deleted Successfully", HttpStatus.OK);
 	}
@@ -61,7 +61,7 @@ public class ForumCommentController {
 			@RequestBody ForumComment forumComment) {
 		ForumComment curr_forumComment = forumCommentDAO.getForumCommentById(forumCommentId);
 		curr_forumComment.setForumComment(forumComment.getForumComment());
-		forumCommentDAO.insertForumComment(curr_forumComment);
+		forumCommentDAO.save(curr_forumComment);
 		return new ResponseEntity<ForumComment>(curr_forumComment, HttpStatus.OK);
 
 	}

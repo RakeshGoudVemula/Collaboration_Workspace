@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table(name="USERTABLE")
-public class User 
+public class User extends BaseDomain
 {
 	@Id
-	private int userId;
+	private String userId;
     private String firstName;
     private String lastName;
     private String password;
@@ -20,10 +20,18 @@ public class User
     private String role;
     private String status;
     private String isOnline;
-	public int getUserId() {
+    private String remarks;
+	
+	public String getRemarks() {
+		return remarks;
+	}
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	public String getFirstName() {

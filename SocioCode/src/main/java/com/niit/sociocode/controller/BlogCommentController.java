@@ -38,9 +38,9 @@ public class BlogCommentController {
 
 		blogComment.setBlogCommentDate(new Date());
 		blogComment.setBlogId(102);
-		blogComment.setUserId(102);
+		blogComment.setUserId("102");
 		blogComment.setUsername("rakhi");
-		blogCommentDAO.insertBlogComment(blogComment);
+		blogCommentDAO.save(blogComment);
 		return new ResponseEntity<String>("Successfully inserted", HttpStatus.OK);
 
 	}
@@ -49,7 +49,7 @@ public class BlogCommentController {
 
 	@RequestMapping(value = "/deleteBlogComment/{blogCommentId}", method = RequestMethod.DELETE)
 	public ResponseEntity<String> deleteBlogComment(@PathVariable("blogCommentId") int blogCommentId) {
-		blogCommentDAO.deleteBlogComment(blogCommentId);
+		blogCommentDAO.delete(blogCommentId);
 		return new ResponseEntity<String>("deleted Successfully", HttpStatus.OK);
 
 	}
@@ -60,7 +60,7 @@ public class BlogCommentController {
 	public ResponseEntity<BlogComment> updateBlog(@PathVariable("blogCommentId") int blogCommentId, @RequestBody BlogComment blogComment) {
 		BlogComment curr_blogcomment = blogCommentDAO.getBlogCommentById(blogCommentId);
 		curr_blogcomment.setBlogComment(blogComment.getBlogComment());
-		blogCommentDAO.insertBlogComment(curr_blogcomment);
+		blogCommentDAO.update(curr_blogcomment);
 		return new ResponseEntity<BlogComment>(curr_blogcomment, HttpStatus.OK);
 
 	}

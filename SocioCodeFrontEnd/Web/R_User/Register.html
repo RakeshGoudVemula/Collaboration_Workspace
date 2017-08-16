@@ -1,0 +1,74 @@
+<body>
+	<div ng-controller="UserController as userctrl">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<span class="lead">User Registration Form </span>
+			</div>
+			<div class="formcontainer">
+				<form ng-submit="userctrl.createUser(userctrl.user)" name="myForm" class="form-horizontal">
+
+					<label>Register As..</label>
+					<div class="container">
+						<div class="radio">
+							<label class="radio-inline"> <input type="radio" name="role" value="student" ng-model="userctrl.user.role">Student
+							</label> <label class="radio-inline"> <input type="radio" name="role" value="employee" ng-model="userctrl.user.role"> Employee
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="id">UserName</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="userctrl.user.userId" id="id" class="userid form-control input-sm" placeholder="Enter your ID" required />
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="uname">FirstName</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="userctrl.user.firstName" id="name" class="username form-control input-sm" placeholder="Enter your Firstname" required />
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="lastName">LastName</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="userctrl.user.lastName" id="mobile" class="mobile form-control input-sm" placeholder="Enter your last name" required />
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label class="col-md-2 control-lable" for="password">Password</label>
+								<div class="col-md-7">
+									<input type="password" ng-model="userctrl.user.password" id="password" class="username form-control input-sm" placeholder="Enter your password" required />
+								</div>
+							</div>
+						</div>
+
+
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label class="col-md-2 control-lable" for="email">Email</label>
+								<div class="col-md-7">
+									<input type="email" ng-model="userctrl.user.emailId" id="email" class="email form-control input-sm" placeholder="Enter your Email" required />
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="form-actions floatRight">
+							<input type="submit" value="Register" class="btn btn-primary btn-sm">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>

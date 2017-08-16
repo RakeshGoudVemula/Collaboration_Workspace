@@ -11,7 +11,7 @@ import com.niit.sociocode.dao.ForumDAO;
 import com.niit.sociocode.model.Forum;
 
 public class ForumTestCase {
-	
+
 	@Autowired
 	static AnnotationConfigApplicationContext context;
 	@Autowired
@@ -29,13 +29,12 @@ public class ForumTestCase {
 	}
 
 	@Test
-	public void createForumTestCase()
-	{
+	public void createForumTestCase() {
 		forum.setForumId(1013);
 		forum.setForumName("rakesh");
-		forum.setUserId(2020);
+		forum.setUserId("2020");
 		forum.setStatus("NA");
-		boolean flag=forumDAO.insertForum(forum);
-		assertEquals("createBlogTestCase",flag,true);
+		boolean flag = forumDAO.save(forum);
+		assertEquals("createBlogTestCase", flag, true);
 	}
 }

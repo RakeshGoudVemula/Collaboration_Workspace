@@ -14,20 +14,29 @@ import org.springframework.stereotype.Component;
 @Table
 @Entity
 @Component
-public class Blog {
+public class Blog extends BaseDomain {
 	@Id
-	@SequenceGenerator(name="SEQ_GEN",sequenceName="BLOG_MODEL",allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_GEN")
+	@SequenceGenerator(name = "SEQ_GEN", sequenceName = "BLOG_MODEL", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_GEN")
 	private int blogId;
 	private String blogName;
 	private String blogContent;
 
-	private int userId;
+	private String userId;
 
 	private Date createDate;
 
 	private String status;
 	private int likes;
+	private String remarks;
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
 
 	public int getBlogId() {
 		return blogId;
@@ -45,11 +54,13 @@ public class Blog {
 		this.blogName = blogName;
 	}
 
-	public int getUserId() {
+	
+
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 

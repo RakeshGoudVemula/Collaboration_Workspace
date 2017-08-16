@@ -1,20 +1,59 @@
-myApp.controller("ForumController", function($scope, $http) {
+myApp.controller("ForumController", function($scope, ForumService, $location, $rootScope, $cookieStore, $http, $route) {
 
-	$scope.forum = {
-		forumId : 2023,
-		forumName : "",
-		forumContent : ""
-	}
+	console.log("Startng of Forum Controller");
+	this.forum = {
+		forumId : '',
+		forumName : '',
+		forumContent : '',
+		userId : '',
+		createDate : '',
+		status : '',
+		likes : '',
+		remarks : ''
+	};
 
-	$http.get("http://localhost:4040/SocioCode/getForums").then(
-			function(response) {
-				$scope.forumData = response.data;
-			});
-	$scope.saveForumPost = function() {
-		$http.post('http://localhost:4040/SocioCode/insertForum', $scope.forum)
-				.then(function(response) {
-					$scope.message = "Successfully Forum Added";
-				});
+	this.forums = [];// json array
+
+	this.getAllForums = function() {
+		console.log("Starting of getAllForumsFunction()");
+		ForumService.getAllForums().then(function(forumServiceData) {
+			$rootScope.forums = forumServiceData;
+			console.log(forumServiceData);
+			// $cookieStore.put('forumServiceData', this.forums);
+
+		});
 	}
+	this.getAllForums();
+
+	$scope.reloadRoute = function() {
+		$route.reload();
+	};
+
+	this.approveForum = function(forum) {
+		console.log("starting of approveForum controller");
+		ForumService.approveForum(forum).then(function(forumServiceD) {
+			this.forum = forumServiceD;
+			alert("Forum Approved successfully");
+			$scope.reloadRoute();
+			$location.path("/getAllForums");
+
+		}, function(errResponse) {
+			console.log("error while approving the forum");
+
+		})
+	};
+
+	this.rejectForum = function(forum) {
+		console.log("starting of rejectForum controller");
+		ForumService.rejectForum(forum).then(function(forumServiceD) {
+			this.forum = forumServiceD;
+			alert("Forum Approved successfully");
+			$scope.reloadRoute();
+			$location.path("/getAllForums");
+		}, function(errResponse) {
+			console.log("error while rejecting the forum");
+
+		})
+	};
 
 });

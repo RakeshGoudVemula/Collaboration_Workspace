@@ -4,14 +4,24 @@ import java.util.List;
 
 import com.niit.sociocode.model.User;
 
-public interface UserDAO
-{
-public boolean insertUser(User user);
-	
+public interface UserDAO {
+	public boolean save(User user);
+
+	public boolean update(User user);
+
+	public boolean delete(String userId);
+
+	public User getUserById(String userId);
+
 	public List<User> list();
+
+	// public User getUserByEmail(String email);
+
+	public User validate(String userId, String password);
 	
-	public boolean deleteUser(int id);
-	
-	public User getUserById(int id);
+	public void setOnline(String userID);
+
+	public void setOffLine(String userID);
+
 
 }

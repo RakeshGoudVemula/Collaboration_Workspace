@@ -30,14 +30,14 @@ public class UserTestCase {
 	@Test
 	public void createUserTestCase()
 	{
-		user.setUserId(497);
+		user.setUserId("497");
 		user.setFirstName("rakesh");
 		user.setLastName("vemula");
 		user.setPassword("password");
 		user.setRole("ROLE_USER");
 		user.setIsOnline("True");
 		user.setStatus("Enable");
-		boolean flag=userDAO.insertUser(user);
+		boolean flag=userDAO.save(user);
 		assertEquals("createUserTestCase",flag,true);
 	}
 

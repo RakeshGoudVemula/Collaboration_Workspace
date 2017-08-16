@@ -1,30 +1,43 @@
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
+
 <div ng-controller="JobController">
 
 	<form>
-		<table class="">
+		<div class="form-group">
+			<label for="jobName">Job Profile</label> <input type="text"
+				style="height: 40px; width: 200px;" class="form-control"
+				ng-model="job.jobProfile" name="jobProfile">
+		</div>
+
+		<div class="form-group">
+			<label for="jobContent">Job Description:</label>
+			<textarea class="form-control" rows="6" style="width: 300px;"
+				ng-model="job.jobDescription" name="jobDescription"></textarea>
+		</div>
+		<button type="submit" class="btn btn-warning" ng-click="saveJobPost()">Submit</button>
+
+
+	</form>
+	<h2>Jobs</h2>
+	<div class="table-responsive">
+		<table class="table table-bordered">
 			<tr>
-				<td colspan="2"></td>
+				<th>SL.No</th>
+				<th>Job Id</th>
+				<th>Job Profile</th>
+				<th>Job Description</th>
 			</tr>
-			<tr>
-				<td><center>Job Profile</center></td>
-			</tr>
-			<tr>
-				<td>Job Profile</td>
-				<td><input type="text" ng-model="job.jobProfile" /></td>
-			</tr>
-			<tr>
-				<td>Job Description</td>
-				<td colspan="2"><input type="text"
-					ng-model="job.jobDescription" /></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" ng-click="saveJobPost()" /></td>
+
+			<tr ng-repeat='x in jobData'>
+				<td>{{ $index + 1 }}</td>
+				<td>{{ x.jobId }}</td>
+				<td>{{ x.jobProfile }}</td>
+				<td>{{x..jobDescription}}</td>
 			</tr>
 		</table>
-	</form>
-	<p>looping with objects</p>
-	<ul>
-		<li ng-repeat='x in jobData'>
-			{{x.jobId+','+x.jobProfile+','+x.jobDescription}}</li>
-	</ul>
+	</div>
 </div>

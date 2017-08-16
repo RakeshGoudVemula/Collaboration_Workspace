@@ -32,13 +32,13 @@ public class JobTestCase {
 	@Test
 	public void createJobTestCase()
 	{
-		job.setJobId(4040);
+		job.setJobId("4040");
 		job.setJobProfile("JAVA Developer");
 		job.setJobDescription("Coding in java");
 		job.setQualification("B.tech");
 		job.setPostDate(new Date());
 		job.setStatus("NA");
-		boolean flag=jobDAO.insertJob(job);
+		boolean flag=jobDAO.save(job);
 		assertEquals("createJobTestCase",flag,true);
 	}
 

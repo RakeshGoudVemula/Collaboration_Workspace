@@ -20,6 +20,7 @@ import com.niit.sociocode.model.Forum;
 import com.niit.sociocode.model.ForumComment;
 import com.niit.sociocode.model.Friend;
 import com.niit.sociocode.model.Job;
+import com.niit.sociocode.model.JobApplied;
 import com.niit.sociocode.model.User;
 
 @Configuration
@@ -58,9 +59,9 @@ public class DBConfig {
 		sessionBuilder.addAnnotatedClass(ForumComment.class);
 		sessionBuilder.addAnnotatedClass(Friend.class);
 		sessionBuilder.addAnnotatedClass(Job.class);
+		sessionBuilder.addAnnotatedClass(JobApplied.class);
 		sessionBuilder.addAnnotatedClass(User.class);
-
-		sessionBuilder.scanPackages("com.niit");
+		sessionBuilder.scanPackages("com.niit.sociocode");
 		return sessionBuilder.buildSessionFactory();
 	}
 

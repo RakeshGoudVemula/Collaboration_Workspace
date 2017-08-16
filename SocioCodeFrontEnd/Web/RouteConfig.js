@@ -1,10 +1,11 @@
 myApp.config(function($routeProvider) {
 	$routeProvider.when("/", {
 		templateUrl : "Template/Home.html"
-	}).when("/Login", {
-		templateUrl : "Template/Login.html",
+	}).when("/login", {
+		templateUrl : "R_User/login.html",
+		controller : "UserController",
 	}).when("/Register", {
-		templateUrl : "Template/Register.html"
+		templateUrl : "R_User/Register.html"
 	}).when("/Blog", {
 		templateUrl : "R_Blog/Blog.html",
 		controller : "BlogController"
@@ -14,9 +15,18 @@ myApp.config(function($routeProvider) {
 	}).when("/Job", {
 		templateUrl : "R_Job/Job.html",
 		controller : "JobController"
-	}).when("/User",{
-		templateUrl:"R_User/User.html",
+	}).when("/AdminHome", {
+		templateUrl : "R_Admin/AdminHome.html",
+		controller : "AdminController"
+	}).when("/getAllBlogs", {
+		templateUrl : "R_Blog/Admin_ManageBlogs.html",
+		controller : "BlogController"
+	}).when("/getAllForums", {
+		templateUrl : "R_Forum/Admin_ManageForums.html",
+		controller : "ForumController"
+	}).when("getUsers",{
+		templateUrl:"R_User/Admin_ManageUsers.html",
 		controller:"UserController"
 	})
-	
+
 });

@@ -13,7 +13,7 @@ import com.niit.sociocode.dao.BlogDAO;
 import com.niit.sociocode.model.Blog;
 
 public class BlogTestCase {
-	
+
 	@Autowired
 	static AnnotationConfigApplicationContext context;
 	@Autowired
@@ -29,7 +29,7 @@ public class BlogTestCase {
 		blogDAO = (BlogDAO) context.getBean("blogDAO");
 		blog = (Blog) context.getBean("blog");
 	}
-	
+
 	@Test
 	public void createBlogTestCase() {
 		blog.setBlogId(1004);
@@ -37,10 +37,10 @@ public class BlogTestCase {
 		blog.setBlogContent("Java Developer");
 		blog.setCreateDate(new Date());
 		blog.setLikes(0);
-		blog.setUserId(1002);
+		blog.setUserId("1002");
 		blog.setStatus("NA");
-		boolean flag=blogDAO.insertBlog(blog);
-		assertEquals("createBlogTestCase",flag,true);
-		
+		boolean flag = blogDAO.save(blog);
+		assertEquals("createBlogTestCase", flag, true);
+
 	}
 }

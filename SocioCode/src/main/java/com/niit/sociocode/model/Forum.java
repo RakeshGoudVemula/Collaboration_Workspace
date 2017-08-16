@@ -3,7 +3,10 @@ package com.niit.sociocode.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -11,15 +14,26 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table
-public class Forum {
+public class Forum extends BaseDomain{
 	@Id
+	@SequenceGenerator(name = "SEQ_GEN", sequenceName = "FORUM_MODEL", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_GEN")
 	private int forumId;
 	private String forumName;
-	private int userId;
+	private String userId;
 	private Date createDate;
 	private String status;
 
 	private String forumContent;
+	private String remarks;
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
 
 	public int getForumId() {
 		return forumId;
@@ -37,11 +51,13 @@ public class Forum {
 		this.forumName = forumName;
 	}
 
-	public int getUserId() {
+	
+
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 

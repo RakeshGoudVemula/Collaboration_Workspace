@@ -30,10 +30,10 @@ public class FriendTestCase {
 	@Test
 	public void createFriendTestCase()
 	{
-		friend.setFriendId(9090);
+		friend.setFriendId("9090");
 		friend.setStatus("Enable");
-		friend.setUserId(2045);
-		boolean flag=friendDAO.insertFriend(friend);
+		friend.setUserId("2045");
+		boolean flag=friendDAO.save(friend);
 		assertEquals("createFriendTestCase",flag,true);
 	}
 

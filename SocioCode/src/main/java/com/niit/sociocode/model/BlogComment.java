@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table
-public class BlogComment {
+public class BlogComment extends BaseDomain{
 	@Id
 	private int blogCommentId;
 	private int blogId;
 	private String blogComment;
 	private Date blogCommentDate;
-	private int userId;
+	private String userId;
 	private String userName;
 
 	public int getBlogCommentId() {
@@ -52,12 +52,22 @@ public class BlogComment {
 		this.blogCommentDate = blogCommentDate;
 	}
 
-	public int getUserId() {
+	
+
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getUsername() {
